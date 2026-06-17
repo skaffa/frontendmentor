@@ -47,7 +47,7 @@ h1 {
 }
 
 p {
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: hsl(217, 12%, 63%);
 }
 
@@ -117,7 +117,7 @@ main:not(:has(input[type="radio"]:checked)) .submit {
     padding: 0.8em 2em;
     background: hsl(25, 97%, 53%);
     color: hsl(0, 0%, 100%);
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
