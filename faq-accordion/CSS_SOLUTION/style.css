@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: hsl(275, 100%, 97%);
+    background-image: url('assets/images/background-pattern-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto 40%;
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: 700;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: hsl(292, 42%, 14%);
+}
+
+h1::before {
+    content: '';
+    background: url('assets/images/icon-star.svg') no-repeat center;
+    height: 1.25em;
+    aspect-ratio: 1;
+    display: inline-block;
+    /* margin-left: 0.5em; */
+}
+
+main {
+    width: 40em;
+    max-width: 95vw;
+    background: hsl(0, 0%, 100%);
+    border-radius: 1.5em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+}
+
+hr {    
+    border-color: rgb(235, 235, 235);
+    border-style: solid;
+    border-top-style: none;
+}
+
+.details {
+    cursor: pointer;
+    padding: 1em 0;
+    padding-right: 15%;
+    position: relative;
+    transition: .25s ease;
+    border: 3px solid transparent;
+}
+
+.details::after {
+    content: '';
+    background: url('assets/images/icon-plus.svg') no-repeat center;
+    width: 2em;
+    aspect-ratio: 1;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.details:focus::after {
+    content: '';
+    background: url('assets/images/icon-minus.svg') no-repeat center;
+}
+
+.summary {
+    font-weight: 600;
+    color: black;
+    transition: color .25s ease;
+    pointer-events: none;
+}
+
+.summary:not(:focus):hover {
+    color: #ad28eb;
+}
+
+.summary + p {
+    height: 0;
+    overflow-y: hidden;
+    font-size: 16px;
+    transition: height .5s ease, margin-top .5s ease;
+}
+
+.details:focus .summary + p {
+    height: 5em;
+    margin-top: 2em;
+    cursor: text;
+}
+
+.details:focus-visible {
+    outline: none;
+    border-radius: 0.5em;
+    border-color: #ad28eb;
+    background-color: hsl(292, 60%, 97%);
+    padding-left: 0.25em;
+}
