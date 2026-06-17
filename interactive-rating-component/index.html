@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+	<link rel="stylesheet" href="style.css" />
+
+	<title>Interactive rating component</title>
+</head>
+
+<body>
+	<main>
+
+		<div class="rating-state">
+			<div class="star-img"><img src="images/icon-star.svg" alt="star"></div>
+			<h1>How did we do?</h1>
+			<p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+			<fieldset class="rating" id="rating" name="rating">
+				<label class="rating-choice-label"><input type="radio" value="1" name="rating">1</label>
+				<label class="rating-choice-label"><input type="radio" value="2" name="rating">2</label>
+				<label class="rating-choice-label"><input type="radio" value="3" name="rating">3</label>
+				<label class="rating-choice-label"><input type="radio" value="4" name="rating">4</label>
+				<label class="rating-choice-label"><input type="radio" value="5" name="rating">5</label>
+			</fieldset>
+			<label class="submit"><input type="checkbox" name="submit">SUBMIT</label>
+		</div>
+
+		<div class="thank-you-state">
+			<div class="thank-you-img"><img src="images/illustration-thank-you.svg" alt="thank you"></div>
+			<p class="selected-rating">You selected <span id="selected-rating"></span> out of 5</p>
+			<h1>Thank you!</h1>
+			<p>We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
+	</main>
+</body>
+
+</html>

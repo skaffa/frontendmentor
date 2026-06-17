@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Overpass", sans-serif;
+}
+
+body {
+    background: hsl(216, 12%, 8%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main {
+    width: 25em;
+    max-width: 95%;
+    padding: 2em;
+    border-radius: 1.5em;
+    background: linear-gradient(to bottom, #232a32, hsl(213, 19%, 18%));
+}
+
+.rating-state {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.star-img {
+    background: #36434d;
+    padding: 0.7rem;
+    border-radius: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 15px;
+    color: hsl(217, 12%, 63%);
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rating-choice-label:has(input:focus-visible) {
+    outline: 2px solid hsl(35, 100%, 75%); 
+    outline-offset: 2px;
+}
+
+
+.submit:has(input:focus-visible) {
+    outline: 2px solid hsl(35, 100%, 75%); 
+    outline-offset: 2px;
+}
+
+/* if a number is not selected, hide the submit checkbox */
+
+.rating label {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: hsl(213, 16%, 25%);
+    color: hsl(217, 12%, 63%);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease, color 0.3s ease;
+    border: solid 1px transparent;
+    user-select: none;
+    cursor: pointer;
+}
+
+.rating label:has(input[type="radio"]:checked) {
+    background: hsl(218, 21%, 46%);
+    color: hsl(0, 0%, 100%);
+}
+
+.rating label:hover {
+    background: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+}
+
+.rating label:has(input[type="radio"]:checked):hover {
+    border-color: hsl(25, 97%, 53%);
+}
+
+.rating label:hover,
+.rating label:has(input:focus-visible) {
+    background: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+}
+
+main:not(:has(input[type="radio"]:checked)) .submit {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.submit {
+    width: 100%;
+    border-radius: 100px;
+    padding: 0.8em 2em;
+    background: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    user-select: none;
+    text-align: center;
+}
+
+.submit:hover {
+    background: hsl(0, 0%, 100%);
+    color: hsl(25, 97%, 53%);
+}
+
+.submit:has(input[type="checkbox"]:checked) {
+    background: hsl(25, 97%, 53%);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.rating-state:not(:has(input[type="radio"]:checked)) .submit input[type="checkbox"] {
+    display: none;
+}
+
+
+main:has(.submit input[type="checkbox"]:checked) .rating-state {
+    display: none;
+}
+
+main:has(.submit input[type="checkbox"]:checked) .thank-you-state {
+    display: flex;
+}
+
+.thank-you-state {
+    display: none;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+.thank-you-state p {
+    text-align: center;
+}
+
+.selected-rating {
+    background: hsl(210, 13.6%, 23.1%);
+    padding: 0.3em 1em;
+    border-radius: 100px;
+    color:hsl(25, 97%, 53%);
+    user-select: none;
+}
+
+main:has(input[value="1"]:checked) #selected-rating::after { content: "1"; }
+main:has(input[value="2"]:checked) #selected-rating::after { content: "2"; }
+main:has(input[value="3"]:checked) #selected-rating::after { content: "3"; }
+main:has(input[value="4"]:checked) #selected-rating::after { content: "4"; }
+main:has(input[value="5"]:checked) #selected-rating::after { content: "5"; }
