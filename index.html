@@ -9,43 +9,80 @@
         /* Modern, minimalist dark mode reset */
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background-color: #121214;
+            background-color: #09090b; /* Slightly deeper, premium dark */
             color: #e4e4e7;
             max-width: 500px;
-            margin: 80px auto;
+            margin: 120px auto; /* More breathing room at the top */
             padding: 0 24px;
             -webkit-font-smoothing: antialiased;
         }
 
         h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-            margin-bottom: 32px;
-            color: #ffffff;
+            font-size: 1.25rem; /* Slightly smaller, more elegant */
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            color: #f4f4f5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Subtle indicator dot next to title */
+        h1::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #38bdf8;
+            border-radius: 50%;
         }
 
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Uniform spacing */
         }
 
-        li {
-            margin: 16px 0;
-        }
-
-        /* Clean, borderless links with a smooth fade */
+        /* Elegant, fully clickable row */
         a {
             color: #a1a1aa;
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.2s ease;
-            display: inline-block;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            background-color: #141416;
+            border: 1px solid #222226;
+            border-radius: 10px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Hover states */
         a:hover {
-            color: #38bdf8; /* Subtle electric blue pop on hover */
+            color: #ffffff;
+            background-color: #18181c;
+            border-color: #38bdf8; /* Uses your electric blue for a crisp border */
+            transform: translateY(-1px); /* Micro-interaction */
+        }
+
+        /* Sleek disclosure arrow that reveals on hover */
+        a::after {
+            content: '→';
+            font-family: monospace;
+            color: #38bdf8;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: all 0.2s ease;
+        }
+
+        a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
         }
     </style>
 </head>
@@ -56,7 +93,7 @@
     <ul>
         <li><a href="./faq-accordion" target="_blank">FAQ Accordion</a></li>
         <li><a href="./interactive-rating-component" target="_blank">Interactive Rating Component</a></li>
-        <li><a href="./social-links-profile>Social Links Profile</a></li>
+        <li><a href="./social-links-profile" target="_blank">Social Links Profile</a></li>
     </ul>
 
 </body>
