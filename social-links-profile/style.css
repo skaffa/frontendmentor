@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: hsl(0, 0%, 8%);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: hsl(0, 0%, 12%);
+}
+
+img {
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: whitesmoke;
+    font-size: 1.7rem;
+    line-height: .8;
+}
+
+h2 {
+    color: hsl(75, 94%, 57%);
+    font-size: 1rem;
+    line-height: .8;
+}
+
+p {
+    color: hsl(0, 0%, 80%);
+    /* margin-bottom: .5rem; */
+    line-height: 2.5;
+}
+
+#links {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    width: 100%;
+}
+
+#links a {
+    background: hsl(0, 0%, 20%);
+    text-decoration: none;
+    color: whitesmoke;
+    padding: .75rem;
+    width: inherit;
+    text-align: center;
+    font-weight: 700;
+    border-radius: .5rem;
+    transition: all .2s ease-in-out;
+}
+
+#links a:hover {
+    background: hsl(75, 94%, 57%);
+    color: hsl(0, 0%, 12%);
+}
