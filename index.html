@@ -5,93 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend Mentor Solutions</title>
     <style>
-        /* Modern, minimalist dark mode reset */
+        /* Minimalist, typographic dark mode */
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: #09090b;
-            color: #e4e4e7;
-            max-width: 480px;
-            margin: 100px auto;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0d0d0e;
+            color: #949499;
+            max-width: 500px;
+            margin: 120px auto;
             padding: 0 24px;
             -webkit-font-smoothing: antialiased;
         }
 
-        h1 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 28px;
-            color: #ffffff;
+        header {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
         }
 
-        /* Subtle accent dot next to the title */
-        h1::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background-color: #38bdf8; /* Electric blue accent */
-            border-radius: 50%;
+        h1 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .counter {
+            font-family: ui-monospace, SFMono-Regular, monospace;
+            font-size: 0.75rem;
+            color: #4c4c52;
         }
 
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            border-top: 1px solid #1f1f23;
         }
 
         li {
-            margin-bottom: 12px;
+            border-bottom: 1px solid #1f1f23;
         }
 
-        /* Turned links into clean, tactile container rows */
+        /* Clean, line-item interaction instead of bulky cards */
         a {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            color: #a1a1aa;
+            color: #bcbcbf;
             text-decoration: none;
             font-size: 0.95rem;
-            padding: 16px 20px;
-            background-color: #141416;
-            border: 1px solid #232326;
-            border-radius: 12px;
-            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+            padding: 20px 0;
+            transition: color 0.2s ease, padding-left 0.2s ease;
         }
 
+        /* Monospace numbering gives a deliberate, curated feel */
+        a .index {
+            font-family: ui-monospace, SFMono-Regular, monospace;
+            font-size: 0.75rem;
+            color: #4c4c52;
+            margin-right: 24px;
+            width: 16px;
+            transition: color 0.2s ease;
+        }
+
+        /* Subtle human touch: text shifts slightly right on hover */
         a:hover {
             color: #ffffff;
-            border-color: #3f3f46;
-            background-color: #18181b;
-            transform: translateY(-1px); /* Slight lift on hover */
+            padding-left: 6px;
         }
 
-        /* A smooth, modern arrow reveal */
-        a::after {
-            content: '→';
-            opacity: 0;
-            transform: translateX(-6px);
-            transition: all 0.2s ease;
-            color: #38bdf8;
-        }
-
-        a:hover::after {
-            opacity: 1;
-            transform: translateX(0);
+        a:hover .index {
+            color: #a1a1aa;
         }
     </style>
 </head>
 <body>
 
-    <h1>Frontend Mentor</h1>
+    <header>
+        <h1>Frontend Mentor</h1>
+        <span class="counter">v1.0</span>
+    </header>
     
     <ul>
-        <li><a href="./faq-accordion" target="_blank">FAQ Accordion</a></li>
-        <li><a href="./interactive-rating-component" target="_blank">Interactive Rating Component</a></li>
-        <li><a href="./social-links-profile" target="_blank">Social Links Profile</a></li>
+        <li>
+            <a href="./faq-accordion" target="_blank">
+                <span class="index">01</span>FAQ Accordion
+            </a>
+        </li>
+        <li>
+            <a href="./interactive-rating-component" target="_blank">
+                <span class="index">02</span>Interactive Rating Component
+            </a>
+        </li>
+        <li>
+            <a href="./social-links-profile" target="_blank">
+                <span class="index">03</span>Social Links Profile
+            </a>
+        </li>
     </ul>
 
 </body>
