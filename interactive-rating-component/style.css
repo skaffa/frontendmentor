@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Overpass", sans-serif;
+    user-select: none;
 }
 
 body {
@@ -21,6 +22,7 @@ main {
     padding: 2em;
     border-radius: 1.5em;
     background: linear-gradient(to bottom, #232a32, hsl(213, 19%, 18%));
+    counter-reset: stars;
 }
 
 .rating-state {
@@ -68,8 +70,6 @@ fieldset {
     outline: 2px solid hsl(35, 100%, 75%); 
     outline-offset: 2px;
 }
-
-/* if a number is not selected, hide the submit checkbox */
 
 .rating label {
     width: 2.5rem;
@@ -146,7 +146,14 @@ input[type="radio"] {
 
 
 main:has(.submit input[type="checkbox"]:checked) .rating-state {
-    display: none;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
 main:has(.submit input[type="checkbox"]:checked) .thank-you-state {
@@ -172,8 +179,11 @@ main:has(.submit input[type="checkbox"]:checked) .thank-you-state {
     user-select: none;
 }
 
-main:has(input[value="1"]:checked) #selected-rating::after { content: "1"; }
-main:has(input[value="2"]:checked) #selected-rating::after { content: "2"; }
-main:has(input[value="3"]:checked) #selected-rating::after { content: "3"; }
-main:has(input[value="4"]:checked) #selected-rating::after { content: "4"; }
-main:has(input[value="5"]:checked) #selected-rating::after { content: "5"; }
+main .rating-choice-label:has( ~ label input:checked) {
+    counter-increment: stars;
+}
+
+#selected-rating::after {
+    counter-increment: stars;
+    content: counter(stars);
+}
