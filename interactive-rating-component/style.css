@@ -142,7 +142,7 @@ main:has(.rating input[type="radio"]:checked) .submit-dummy {
 }
 
 main:has(.submit-dummy input:checked) .submit-dummy:not(:checked)::after {
-    content: 'Please select a rating';
+    content: 'Tell us how we did first';
     pointer-events: none;
     position: absolute;
     top: 140%;
