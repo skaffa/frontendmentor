@@ -21,7 +21,9 @@ main {
     max-width: 95%;
     padding: 2em;
     border-radius: 1.5em;
-    background: linear-gradient(to bottom, #232a32, hsl(213, 19%, 18%));
+    /* background: linear-gradient(to bottom, #2a3038, hsl(213, 19%, 18%)); */
+    background: radial-gradient(98.96% 98.96% at 50% 0%, #232A34 0%, #181E27 100%);
+    background-position: center -20%;
     counter-reset: stars;
 }
 
@@ -35,8 +37,8 @@ main {
     background: #36434d;
     padding: 0.7rem;
     border-radius: 100%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 48px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,12 +47,13 @@ main {
 h1 {
     color: hsl(0, 0%, 100%);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 28px;
 }
 
 p {
     font-size: 0.9375rem;
     color: hsl(217, 12%, 63%);
+    line-height: 24px;
 }
 
 fieldset {
@@ -65,15 +68,20 @@ fieldset {
     outline-offset: 2px;
 }
 
+.rating-choice-label *:hover {
+    cursor: pointer;
+}
 
-.submit:has(input:focus-visible) {
+.submit:has(input:focus-visible),
+.submit-dummy:has(input:focus-visible) {
     outline: 2px solid hsl(35, 100%, 75%); 
     outline-offset: 2px;
 }
 
 .rating label {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 51px;
+    aspect-ratio: 1/1;
+    /* height: 2.5rem; */
     background: hsl(213, 16%, 25%);
     color: hsl(217, 12%, 63%);
     border-radius: 100%;
@@ -106,12 +114,59 @@ fieldset {
     color: hsl(0, 0%, 100%);
 }
 
-main:not(:has(input[type="radio"]:checked)) .submit {
-    opacity: 0.5;
-    pointer-events: none;
+/* *******************/
+
+.submit-dummy {
+    position: relative;
 }
 
-.submit {
+main:not(:has(.rating input[type="radio"]:checked))  {
+
+    & .submit {
+        /* opacity: 0.5; */
+        /* pointer-events: none; */
+        display: none;
+    }
+
+    & .submit-dummy-1:has(input:checked)  {
+        display: none;
+    }
+}
+
+main:not(:has(.submit-dummy-1 input:checked)) .submit-dummy-2 {
+    display: none;
+}
+
+main:has(.rating input[type="radio"]:checked) .submit-dummy {
+    display: none;
+}
+
+main:has(.submit-dummy input:checked) .submit-dummy:not(:checked)::after {
+    content: 'Please select a rating';
+    pointer-events: none;
+    position: absolute;
+    top: 140%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: hsl(25, 97%, 53%);
+    animation: snackbar 3s forwards;
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+@keyframes snackbar {
+    0% {
+        opacity: 100%;
+    }
+
+    80%, 100% {
+        opacity: 0;
+    }
+}
+
+/* ********************/
+.style-submit-button {
     width: 100%;
     border-radius: 100px;
     padding: 0.8em 2em;
@@ -125,14 +180,14 @@ main:not(:has(input[type="radio"]:checked)) .submit {
     text-align: center;
 }
 
-.submit:hover {
+.style-submit-button:hover {
     background: hsl(0, 0%, 100%);
     color: hsl(25, 97%, 53%);
 }
 
-.submit:has(input[type="checkbox"]:checked) {
+/* .submit:has(input[type="checkbox"]:checked) {
     background: hsl(25, 97%, 53%);
-}
+} */
 
 input[type="checkbox"],
 input[type="radio"] {
